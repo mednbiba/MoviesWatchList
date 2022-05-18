@@ -19,7 +19,7 @@ public class RequestManager {
     Context context;
     Retrofit retrofit=new Retrofit
             .Builder()
-            .baseUrl("https://imdb-api.com/en/API/SearchMovie/k_bos5za9b/")
+            .baseUrl("https://imdb-api.com/en/API/")
             .addConverterFactory(GsonConverterFactory.create()).build();
 
     public RequestManager(Context context){
@@ -51,7 +51,7 @@ public class RequestManager {
         @Headers({
                 "Accept: application/json"
         })
-        @GET("{movie_name}")
+        @GET("SearchMovie/k_bos5za9b/{movie_name}")
         Call<SearchApiResponse> callMovies(
                 @Path("movie_name") String movie_name
         );
