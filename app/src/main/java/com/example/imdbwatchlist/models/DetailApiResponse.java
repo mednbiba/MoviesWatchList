@@ -41,6 +41,14 @@ public class DetailApiResponse {
     String posters=null;
     String images=null;
     String trailer=null;
+    boxOffice boxOffice;
+    String tagline="";
+    String keywords="";
+    String tvSeriesInfo=null;
+    String tvEpisodeInfo=null;
+    String errorMessage=null;
+
+
 
 
 

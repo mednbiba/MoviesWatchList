@@ -3,7 +3,9 @@ package com.example.imdbwatchlist;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.example.imdbwatchlist.Listeners.OnDetailsApiLister;
 import com.example.imdbwatchlist.Listeners.OnSearchApiListener;
+import com.example.imdbwatchlist.models.DetailApiResponse;
 import com.example.imdbwatchlist.models.SearchApiResponse;
 
 import retrofit2.Call;
@@ -47,6 +49,28 @@ public class RequestManager {
             }
         });
     }
+
+    public void searchMoviesDetails(OnDetailsApiLister listener, String movie_id){
+        getMoviesDetails getMoviesDetails = retrofit.create(RequestManager.getMoviesDetails.class);
+        Call<DetailApiResponse> call = getMoviesDetails.callMovieDetails(movie_id);
+        call.enqueue(new Callback<DetailApiResponse>() {
+            @Override
+            public void onResponse(Call<DetailApiResponse> call, Response<DetailApiResponse> response) {
+                if (!response.isSuccessful()){
+                    Toast.makeText(context, "Couldn't Grab Details", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                listener.onResponse(response.body());
+
+            }
+
+            @Override
+            public void onFailure(Call<DetailApiResponse> call, Throwable t) {
+                listener.onError(t.getMessage());
+
+            }
+        });
+    }
     public interface getMovies {
         @Headers({
                 "Accept: application/json"
@@ -63,7 +87,7 @@ public class RequestManager {
                 "Accept: application/json"
         })
         @GET("Title/k_bos5za9b/{movie_id}")
-        Call<SearchApiResponse> callMovieDetails(
+        Call<DetailApiResponse> callMovieDetails(
                 @Path("movie_id") String movie_id
         );
 
