@@ -57,4 +57,15 @@ public class RequestManager {
         );
 
     }
+
+    public interface getMoviesDetails {
+        @Headers({
+                "Accept: application/json"
+        })
+        @GET("Title/k_bos5za9b/{movie_id}")
+        Call<SearchApiResponse> callMovieDetails(
+                @Path("movie_id") String movie_id
+        );
+
+    }
 }
