@@ -2,10 +2,13 @@ package com.example.imdbwatchlist;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context) {
@@ -38,5 +41,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long id = db.insert(Constants.TABLE_NAME,null,values);
         db.close();
         return id;
+    }
+    public void deleteInfo(String id){
+        SQLiteDatabase db=getWritableDatabase();
+        db.delete(Constants.TABLE_NAME,Constants.M_IMDB_ID+" = ?", new String[]{id});
+        db.close();
+    }
+    public ArrayList<Model> getAllData(String orderBy){
+
+        ArrayList<Model> arraylist = new ArrayList<>();
+
+        //Query
+        String selectQuery="SELECT * FROM "+Constants.TABLE_NAME+" ORDER BY "+ orderBy;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if(cursor.moveToNext()){
+            do{Model model = new Model(
+
+                      ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.M_TITLE)),
+                      ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.M_SCORE)),
+                      ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.M_TIME_STAMP)),
+                      ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.M_IMDB_ID)),
+                      ""+cursor.getString(cursor.getColumnIndexOrThrow(Constants.M_IMAGE_URI))
+
+
+            );
+                arraylist.add(model);
+
+
+            } while(cursor.moveToNext());
+        }
+        db.close();
+        return arraylist;
+
     }
 }

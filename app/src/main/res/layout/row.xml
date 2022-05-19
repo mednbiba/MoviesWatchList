@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:contentPadding="3dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/main">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/movieposter"
+            android:layout_centerVertical="true"
+            android:src="@drawable/profile"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/movieposter"
+            android:layout_toEndOf="@id/movieposter"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title0"
+                android:text="Movie Title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/score0"
+                android:text="Movie Score"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/id0"
+                android:text="Movie Refernce"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                android:fontFamily="sans-serif-light"/>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

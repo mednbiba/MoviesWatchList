@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.imdbwatchlist.Adapters.HomeRecyclerAdapter;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements OnMovieClickListe
     HomeRecyclerAdapter adapter;
     RequestManager manager;
     ProgressDialog dialog;
+    Button mymovies,mycinemas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,23 @@ public class MainActivity extends AppCompatActivity implements OnMovieClickListe
 
         search_view=findViewById(R.id.search_view);
         recycler_view_home=findViewById(R.id.recycler_view_home);
+        mymovies=findViewById(R.id.movz);
+        mycinemas=findViewById(R.id.cinemaz);
         dialog=new ProgressDialog(this);
 
         manager=new RequestManager(this);
+        mymovies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MyMovies.class));
+            }
+        });
+        mycinemas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MyCinemas.class));
+            }
+        });
         search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

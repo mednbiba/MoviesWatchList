@@ -69,6 +69,14 @@ public class MovieDetails extends AppCompatActivity {
 
             }
         });
+        cinemas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(MovieDetails.this,MyCinemas.class));
+
+            }
+        });
     }
     private OnDetailsApiLister listener = new OnDetailsApiLister() {
         @Override
@@ -126,7 +134,7 @@ public class MovieDetails extends AppCompatActivity {
 
 
        //Toast.makeText(this, imdb_id+":"+title+" Added", Toast.LENGTH_SHORT).show();
-       Toast.makeText(this, Image_uri, Toast.LENGTH_SHORT).show();
+       startActivity(new Intent(MovieDetails.this,MyMovies.class));
 
     }
 }
