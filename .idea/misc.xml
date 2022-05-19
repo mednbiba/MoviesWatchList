@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/NBIBA/AndroidStudioProjects/IMDBWatchList/app/src/main/res/layout/activity_login.xml" value="0.12" />
         <entry key="..\:/Users/NBIBA/AndroidStudioProjects/IMDBWatchList/app/src/main/res/layout/activity_main.xml" value="0.3342391304347826" />
         <entry key="..\:/Users/NBIBA/AndroidStudioProjects/IMDBWatchList/app/src/main/res/layout/activity_movie_details.xml" value="0.33" />
         <entry key="..\:/Users/NBIBA/AndroidStudioProjects/IMDBWatchList/app/src/main/res/layout/cast_list.xml" value="0.31145833333333334" />
         <entry key="..\:/Users/NBIBA/AndroidStudioProjects/IMDBWatchList/app/src/main/res/layout/home_movies_list.xml" value="0.18" />
+        <entry key="..\:/Users/NBIBA/AndroidStudioProjects/IMDBWatchList/app/src/main/res/layout/row.xml" value="0.18802083333333333" />
       </map>
     </option>
   </component>

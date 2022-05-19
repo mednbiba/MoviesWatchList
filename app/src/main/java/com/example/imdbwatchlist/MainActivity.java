@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements OnMovieClickListe
         recycler_view_home.setHasFixedSize(true);
 
         //Number of movies per line
-        recycler_view_home.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+        recycler_view_home.setLayoutManager(new GridLayoutManager(MainActivity.this, 3));
 
         adapter = new HomeRecyclerAdapter(this,response.getResults(), this);
         recycler_view_home.setAdapter(adapter);
