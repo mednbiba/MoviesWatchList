@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,9 +63,16 @@ public class MovieDetails extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int status=DB.movieExists(TextView_IMDB_ID.getText().toString());
+
+                if (status==1){
+                    Toast.makeText(MovieDetails.this, "Movie Already Exists in your WatchList", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    getData();
+                }
 
 
-                getData();
 
 
 
@@ -121,6 +130,14 @@ public class MovieDetails extends AppCompatActivity {
         }catch (Exception ex){
             ex.printStackTrace();
         }
+        int status=DB.movieExists(TextView_IMDB_ID.getText().toString());
+        if (status==1){
+            add.setBackgroundColor(Color.GRAY);
+            add.setTextColor(Color.BLACK);
+            add.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+
+
 
 
     }

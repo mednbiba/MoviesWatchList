@@ -47,6 +47,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(Constants.TABLE_NAME,Constants.M_IMDB_ID+" = ?", new String[]{id});
         db.close();
     }
+    public int movieExists(String id){
+        int found=0;
+        String selectQuery="select * from "+ Constants.TABLE_NAME+" where "+Constants.M_IMDB_ID+"='"+id+"'";
+
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if(cursor.moveToNext()){
+            found=1;
+        }
+        db.close();
+        return found;
+    }
     public ArrayList<Model> getAllData(String orderBy){
 
         ArrayList<Model> arraylist = new ArrayList<>();

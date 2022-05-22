@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Movie Helper</string>
+    <string name="callString">📞</string>
+    <string name="locationString">📍</string>
+    <string name="marsa">Marsa</string>
+    <string name="l_agora">L\'agora</string>
 </resources>

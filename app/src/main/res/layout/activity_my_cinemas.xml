@@ -9,11 +9,12 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="128dp"
         android:background="@color/cardview_light_background"
         android:orientation="horizontal"
-        android:id="@+id/l1"
+
 
         >
 
@@ -22,8 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:paddingLeft="8dp"
-            android:text="El Hambra"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/l_agora"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/location2"
@@ -38,7 +40,7 @@
             android:layout_marginEnd="28dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:text="Marsa"
+            android:text="@string/marsa"
             android:textAlignment="center"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -54,8 +56,9 @@
             android:layout_marginTop="44dp"
 
             android:layout_marginEnd="24dp"
-            android:paddingLeft="10dp"
-            android:text="📍 "
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/locationString"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/call"
             app:layout_constraintTop_toTopOf="parent"
@@ -68,8 +71,155 @@
             android:layout_marginTop="44dp"
 
             android:layout_marginEnd="28dp"
-            android:paddingLeft="10dp"
-            android:text="📞"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/callString"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal"
+        android:layout_below="@id/l1"
+
+        >
+
+        <TextView
+            android:id="@+id/name32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="El Hambra"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/location4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.495" />
+
+        <TextView
+            android:id="@+id/location4"
+            android:layout_width="93dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="28dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/marsa"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.504" />
+
+
+        <Button
+            android:id="@+id/call4"
+            android:layout_width="70dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="44dp"
+
+            android:layout_marginEnd="24dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/locationString"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/call31"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/call31"
+            android:layout_width="70dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="44dp"
+
+            android:layout_marginEnd="28dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/callString"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal"
+        android:layout_below="@id/l2"
+
+        >
+
+        <TextView
+            android:id="@+id/name4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="Pathé"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/location41"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.495" />
+
+        <TextView
+            android:id="@+id/location41"
+            android:layout_width="93dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="28dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/marsa"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.504" />
+
+
+        <Button
+            android:id="@+id/call3"
+            android:layout_width="70dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="44dp"
+
+            android:layout_marginEnd="24dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/locationString"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/call41"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/call41"
+            android:layout_width="70dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="44dp"
+
+            android:layout_marginEnd="28dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/callString"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

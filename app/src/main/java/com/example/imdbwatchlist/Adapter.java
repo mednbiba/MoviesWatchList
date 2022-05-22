@@ -58,11 +58,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         holder.title.setText(title);
         holder.ref.setText(id);
         holder.score.setText(score);
+        Picasso.get().load(Image_uri).resize(120,120).into(holder.movieposter);
 
-        //Does not work
+
         try{
 
-            Picasso.get().load(Image_uri).into(holder.movieposter);
+
 
         }catch (Exception ex){
             ex.printStackTrace();
@@ -72,7 +73,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             @Override
             public boolean onLongClick(View view) {
                 deleteDialog(""+id);
+
+
+
+
                 return false;
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // Toast.makeText(context, holder.title.getText(), Toast.LENGTH_SHORT).show();
+                Intent mapIntent = new Intent(view.getContext(),MovieDetails.class);
+                // Make the Intent explicit by setting the Google Maps package
+                mapIntent.putExtra("data",id);
+                mapIntent.putExtra("status","mawjoud");
+                view.getContext().startActivity(mapIntent);
+
             }
         });
 
@@ -91,7 +108,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 databaseHelper.deleteInfo(id);
-                Toast.makeText(context, "Deleted"+id, Toast.LENGTH_SHORT).show();
+
+
+                Toast.makeText(context, "Deleted"+id+" Auto Refresh Disabled", Toast.LENGTH_SHORT).show();
 
 
 
@@ -123,6 +142,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             title=itemView.findViewById(R.id.title0);
             score=itemView.findViewById(R.id.score0);
             ref=itemView.findViewById(R.id.id0);
+            movieposter=itemView.findViewById(R.id.movieposter);
         }
     }
+
+
 }
