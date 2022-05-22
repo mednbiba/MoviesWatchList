@@ -142,6 +142,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             title=itemView.findViewById(R.id.title0);
             score=itemView.findViewById(R.id.score0);
             ref=itemView.findViewById(R.id.id0);
+
+            //Bruh
             movieposter=itemView.findViewById(R.id.movieposter);
         }
     }

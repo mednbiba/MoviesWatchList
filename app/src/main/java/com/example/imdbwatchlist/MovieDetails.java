@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,11 +24,12 @@ import com.squareup.picasso.Picasso;
 public class MovieDetails extends AppCompatActivity {
     TextView TextView_movieName,TextView_movieReleased,TextView_movieRuntime,TextView_movieRating,TextView_movieVotes,TextView_moviePlot,TextView_stars,TextView_IMDB_ID;
     ImageView ImageView_Poster2;
+    //Cast RV
     RecyclerView recycler_view_cast;
     CastRecyclerAdapter adapter;
     RequestManager manager;
     ProgressDialog dialog;
-    Button add,cinemas;
+    Button add,cinemas,mvlist,sms;
     protected DatabaseHelper DB;
     String Image_uri;
 
@@ -50,6 +52,8 @@ public class MovieDetails extends AppCompatActivity {
         TextView_stars=findViewById(R.id.TextView_stars);
         add = findViewById(R.id.addmovie);
         cinemas=findViewById(R.id.cinemas);
+        mvlist=findViewById(R.id.mvlist);
+        sms=findViewById(R.id.sms);
         //API MANAGER
         manager = new RequestManager(this);
         //GRAB MOVIE ID FROM EXTRA
@@ -84,6 +88,24 @@ public class MovieDetails extends AppCompatActivity {
 
                 startActivity(new Intent(MovieDetails.this,MyCinemas.class));
 
+            }
+
+        });
+        mvlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MovieDetails.this,MyMovies.class));
+            }
+        });
+        sms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phoneNo = "+21628531776";//The phone number you want to text
+                String sms= "Hello I would like to reserve a ticket for the following movie : "+TextView_movieName.getText().toString();//The message you want to text to the phone
+
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", phoneNo, null));
+                smsIntent.putExtra("sms_body",sms);
+                startActivity(smsIntent);
             }
         });
     }
