@@ -1,6 +1,6 @@
 
 # My Movie Helper
-
+Android studio project for Polytech Intl
 A small Android application to browse movie catalogues made using REST API provided by
 IMDB-API.com
 
