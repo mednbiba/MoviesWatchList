@@ -111,6 +111,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
 
                 Toast.makeText(context, "Deleted"+id+" Auto Refresh Disabled", Toast.LENGTH_SHORT).show();
+                notifyDataSetChanged();
 
 
 
