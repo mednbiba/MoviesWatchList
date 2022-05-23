@@ -26,6 +26,8 @@ PS : Use the same version for retrofit and converter-gson to avoid conflict erro
 ## API Reference
 https://imdb-api.com/
 
+Base URL : https://imdb-api.com/en/API/
+
 Change API_KEY in **RequestManager.java**
 #### Get all items
 
