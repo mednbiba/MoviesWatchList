@@ -30,7 +30,7 @@ Change API_KEY in **RequestManager.java**
 #### Get all items
 
 ```http
-  GET SearchMovie/{api_key}/{movie_name}
+  GET SearchMovie/api_key/{movie_name}
 ```
 
 | Parameter | Type     | Description                |
